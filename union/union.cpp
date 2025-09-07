@@ -18,16 +18,15 @@ int main() {
     data.decimal = 3.14f;
     std::cout << "Data as float: " << data.decimal << '\n';
     
-    void* pNum; 
+    void* pData = &data; 
     
-    pNum = static_cast<int*>(&data.num);
-    std::cout << "Data interpreted as integer: " << &pNum << '\n';
+    std::cout << "Union address(as int*): " << static_cast<void*>(&data.num) << '\n';
+    std::cout << "Union address(as char*): " << static_cast<void*>(&data.letter) << '\n';
+    std::cout << "Union address(as float*): " << static_cast<void*>(&data.decimal) << '\n';
+    std::cout << "Union address(as void*): " << pData << '\n';
     
-    pNum = static_cast<float*>(&data.decimal);
-    std::cout << "Data interpreted as float: " << &pNum << '\n';
+    data.num = 65;
+    std::cout << "Set as integer, read as character: " << data.letter << '\n';
     
-    pNum = static_cast<char*>(&data.letter);
-    std::cout << "Data interpreted as character: " << &pNum << '\n';
-
     return 0;
 }

@@ -9,7 +9,7 @@ int main() {
             
             void printInfo() {
                 std::cout << "Name: " << name << ", Age: " << age << '\n';
-            };
+            }
     };
     
     Person person {"Panteleimon", 16};
